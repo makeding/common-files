@@ -4,6 +4,10 @@
 	notifempty
 	create 640 http log
 	sharedscripts
+	# dateformat -%Y-%m-%d
+	# weekly
+	# daily
+	# rotate 365 # keep file in 365d = 1y
 	postrotate
 		test ! -r /run/nginx.pid || kill -USR1 `cat /run/nginx.pid`
 	endscript
