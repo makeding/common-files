@@ -2,12 +2,14 @@
 	missingok
   dateext
 	notifempty
-	create 640 http log
+	create 0640 http log
 	sharedscripts
-	# dateformat -%Y-%m-%d
+	dateformat -%Y-%m-%d
 	# weekly
-	# daily
-	# rotate 365 # keep file in 365d = 1y
+	daily
+	# keep file if daily = 365d = 1y
+	# keep file if weekly = 365w = ?
+	# rotate 365
 	postrotate
 		test ! -r /run/nginx.pid || kill -USR1 `cat /run/nginx.pid`
 	endscript
